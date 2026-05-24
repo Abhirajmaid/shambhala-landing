@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 44" role="img" aria-label="Hettich">
+  <rect x="6" y="8" width="4" height="14" fill="#e30613" transform="skewX(-12)"/>
+  <rect x="12" y="8" width="4" height="14" fill="#ffcc00" transform="skewX(-12)"/>
+  <rect x="18" y="8" width="4" height="14" fill="#00a651" transform="skewX(-12)"/>
+  <rect x="24" y="8" width="4" height="14" fill="#005baa" transform="skewX(-12)"/>
+  <text x="36" y="30" font-family="Georgia, serif" font-size="24" font-weight="600" fill="#333">Hettich</text>
+</svg>

@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette per Shambhala Brand Guidelines
+     Primary: #e25827  | Secondary: #f39430
+     Cream:   #e6d6b9  | Dark:      #372c21  | Brown: #4b3a34 */
+  --color-brand-coral: #e25827;
+  --color-brand-coral-600: #c2481c;
+  --color-brand-coral-100: #fde7d6;
+  --color-brand-orange: #f39430;
+  --color-brand-orange-100: #fde7c4;
+  --color-brand-cream: #e6d6b9;
+  --color-brand-cream-soft: #f3eada;
+  --color-brand-navy: #372c21;
+  --color-brand-navy-700: #271e15;
+  --color-brand-navy-500: #4b3a34;
+  --color-brand-brown: #4b3a34;
+  --color-brand-yellow: #f39430;
+  --color-brand-yellow-soft: #fde7c4;
+  --color-brand-green: #4b3a34;
+  --color-brand-green-600: #3a2c26;
+  --color-brand-blue: #4b3a34;
+  --color-brand-mist: #faf6ee;
+  --color-brand-border: #e7dfd1;
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), var(--font-poppins),
+    ui-sans-serif, system-ui, sans-serif;
+  --font-script: var(--font-yellowtail), "Brush Script MT", cursive;
+
+  --shadow-card: 0 8px 24px rgba(55, 44, 33, 0.10);
+  --shadow-soft: 0 4px 14px rgba(55, 44, 33, 0.07);
+  --shadow-pop: 0 12px 32px rgba(226, 88, 39, 0.28);
+
+  --radius-card: 16px;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #2b2436;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle scrollbar for horizontal scrollers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Infinite marquee for partner logos */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+  will-change: transform;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Section base spacing */
+.section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+@media (min-width: 768px) {
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Reusable container */
+.container-px {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 768px) {
+  .container-px {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .container-px {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
