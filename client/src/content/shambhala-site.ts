@@ -80,7 +80,8 @@ export const projectStories = [
     meta: "3 BHK at Lodha Belmondo, Ravet, Pune",
     caption:
       "Organized kitchens ensure seamless workflow, saving time in food preparation.",
-    video: encodeURI("/testimonial/Sapna Kushwah_s Testimonial.mp4"),
+    video:
+      "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706846/Sapna_Kushwah_s_Testimonial_iqlrvw.mp4",
     mime: "video/mp4" as const,
   },
   {
@@ -89,7 +90,8 @@ export const projectStories = [
     meta: "4 BHK at EON Waterfront, Kharadi, Pune",
     caption:
       "Discover the art of cooking in a kitchen that's designed for maximum convenience.",
-    video: encodeURI("/testimonial/Mittal Family Testimonial.mp4"),
+    video:
+      "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706376/Mittal_Family_Testimonial_xkxtai.mp4",
     mime: "video/mp4" as const,
   },
   {
@@ -98,7 +100,8 @@ export const projectStories = [
     meta: "4.5 BHK, Panchshil Towers, Pune",
     caption:
       "Joint efforts ensure client needs are thoroughly understood and met, enhancing project success and satisfaction.",
-    video: encodeURI("/testimonial/Prachi Testimonial.mp4"),
+    video:
+      "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706819/Prachi_Testimonial_xim4eq.mp4",
     mime: "video/mp4" as const,
   },
 ] as const;
@@ -130,22 +133,38 @@ export const blogPosts = [
   },
 ] as const;
 
-/** All client testimonial files in /public/testimonial — horizontal strip */
+/** Client testimonial videos (Cloudinary) — horizontal strip */
 export const testimonialVideos = [
-  { file: "Deepa Advani Testimonial.mp4", label: "Deepa Advani", mime: "video/mp4" as const },
-  { file: "Dinesh & Mansi Testimonial.mp4", label: "Dinesh & Mansi", mime: "video/mp4" as const },
-  { file: "Dolhin Palm Interview (1).mp4", label: "Dolhin Palm", mime: "video/mp4" as const },
-  { file: "Kolhapur Client Testimonial.mov", label: "Kolhapur client", mime: "video/quicktime" as const },
-  { file: "Mittal Family Testimonial.mp4", label: "Mittal family", mime: "video/mp4" as const },
-  { file: "Mrs Sable Testimonial.mp4", label: "Mrs Sable", mime: "video/mp4" as const },
-  { file: "Prachi Testimonial.mp4", label: "Prachi", mime: "video/mp4" as const },
-  { file: "Prasad & Ujwala Testimonial 1.mp4", label: "Prasad & Ujwala (1)", mime: "video/mp4" as const },
-  { file: "Prasad & Ujwala Testimonial 2.mp4", label: "Prasad & Ujwala (2)", mime: "video/mp4" as const },
-  { file: "Rakhi Testimonial.mp4", label: "Rakhi", mime: "video/mp4" as const },
-  { file: "Rupal Mehta.mp4", label: "Rupal Mehta", mime: "video/mp4" as const },
-  { file: "Sapna Kushwah_s Testimonial.mp4", label: "Sapna Kushwah", mime: "video/mp4" as const },
-  { file: "Shubh Testimonial.mp4", label: "Shubh", mime: "video/mp4" as const },
-  { file: "Varsha Raut.mp4", label: "Varsha Raut", mime: "video/mp4" as const },
+  {
+    src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779707029/Shubh_Testimonial_huq70m.mp4",
+    label: "Shubh",
+    mime: "video/mp4" as const,
+  },
+  {
+    src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706846/Sapna_Kushwah_s_Testimonial_iqlrvw.mp4",
+    label: "Sapna Kushwah",
+    mime: "video/mp4" as const,
+  },
+  {
+    src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706835/Mrs_Sable_Testimonial_byu33c.mp4",
+    label: "Mrs Sable",
+    mime: "video/mp4" as const,
+  },
+  {
+    src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706819/Prachi_Testimonial_xim4eq.mp4",
+    label: "Prachi",
+    mime: "video/mp4" as const,
+  },
+  {
+    src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706548/Prasad_Ujwala_Testimonial_2_acghxs.mp4",
+    label: "Prasad & Ujwala",
+    mime: "video/mp4" as const,
+  },
+  {
+    src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706376/Mittal_Family_Testimonial_xkxtai.mp4",
+    label: "Mittal family",
+    mime: "video/mp4" as const,
+  },
 ] as const;
 
 export const showroomLocations = [

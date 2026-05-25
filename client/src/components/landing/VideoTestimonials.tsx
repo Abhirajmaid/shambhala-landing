@@ -43,7 +43,7 @@ export function VideoTestimonials() {
           >
             {testimonialVideos.map((v) => (
               <article
-                key={v.file}
+                key={v.src}
                 data-card
                 className="w-[85%] shrink-0 snap-start sm:w-[55%] md:w-[38%] lg:w-[32%]"
               >
@@ -54,10 +54,7 @@ export function VideoTestimonials() {
                     preload="metadata"
                     className="aspect-[4/5] min-h-[18rem] w-full object-cover sm:min-h-[20rem] md:min-h-[24rem] lg:min-h-[26rem]"
                   >
-                    <source
-                      src={encodeURI(`/testimonial/${v.file}`)}
-                      type={v.mime}
-                    />
+                    <source src={v.src} type={v.mime} />
                   </video>
                 </div>
                 <p className="mt-2 text-center text-xs font-medium text-brand-navy/80">
