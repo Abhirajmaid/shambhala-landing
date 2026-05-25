@@ -43,16 +43,16 @@ export function VideoTestimonials() {
           >
             {testimonialVideos.map((v) => (
               <article
-                key={v.src}
+                key={v.id}
                 data-card
-                className="w-[85%] shrink-0 snap-start sm:w-[55%] md:w-[38%] lg:w-[32%]"
+                className="w-[85%] shrink-0 snap-start sm:w-[55%] md:w-[36%] lg:w-[30%]"
               >
                 <div className="overflow-hidden rounded-2xl border border-brand-border bg-brand-navy shadow-card">
                   <video
                     controls
                     playsInline
                     preload="metadata"
-                    className="aspect-[4/5] min-h-[18rem] w-full object-cover sm:min-h-[20rem] md:min-h-[24rem] lg:min-h-[26rem]"
+                    className="aspect-[3/4] min-h-[18rem] w-full object-cover sm:min-h-[20rem] md:min-h-[22rem] lg:min-h-[24rem]"
                   >
                     <source src={v.src} type={v.mime} />
                   </video>

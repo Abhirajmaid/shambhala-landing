@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { submitLead } from "@/lib/api";
+import { submitLead } from "@/lib/leads";
 import {
   requirementOptions,
   siteContact,

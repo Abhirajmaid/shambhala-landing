@@ -133,34 +133,40 @@ export const blogPosts = [
   },
 ] as const;
 
-/** Client testimonial videos (Cloudinary) — horizontal strip */
+/** Client testimonial videos — hosted on Cloudinary */
 export const testimonialVideos = [
   {
+    id: "shubh",
     src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779707029/Shubh_Testimonial_huq70m.mp4",
     label: "Shubh",
     mime: "video/mp4" as const,
   },
   {
+    id: "sapna",
     src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706846/Sapna_Kushwah_s_Testimonial_iqlrvw.mp4",
     label: "Sapna Kushwah",
     mime: "video/mp4" as const,
   },
   {
+    id: "mrs-sable",
     src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706835/Mrs_Sable_Testimonial_byu33c.mp4",
     label: "Mrs Sable",
     mime: "video/mp4" as const,
   },
   {
+    id: "prachi",
     src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706819/Prachi_Testimonial_xim4eq.mp4",
     label: "Prachi",
     mime: "video/mp4" as const,
   },
   {
+    id: "prasad-ujwala",
     src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706548/Prasad_Ujwala_Testimonial_2_acghxs.mp4",
     label: "Prasad & Ujwala",
     mime: "video/mp4" as const,
   },
   {
+    id: "mittal",
     src: "https://res.cloudinary.com/dzisvrjak/video/upload/v1779706376/Mittal_Family_Testimonial_xkxtai.mp4",
     label: "Mittal family",
     mime: "video/mp4" as const,

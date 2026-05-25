@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { DashboardShell } from "@/components/dashboard/DashboardShell";
 
 export const metadata: Metadata = {
-  title: "Shambhala Dashboard",
-  description: "Dashboard for callback requests",
+  title: "Dashboard — Shambhala",
+  description: "Callback requests from the Shambhala landing page",
 };
 
 export default function DashboardLayout({
@@ -10,9 +11,5 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="min-h-screen bg-brand-mist font-sans text-brand-navy">
-      {children}
-    </div>
-  );
+  return <DashboardShell>{children}</DashboardShell>;
 }

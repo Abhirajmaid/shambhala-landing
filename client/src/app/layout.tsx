@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Montserrat, Yellowtail } from "next/font/google";
+import { FirebaseAnalytics } from "@/components/FirebaseAnalytics";
+import { FirebaseProvider } from "@/components/FirebaseProvider";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -44,7 +46,10 @@ export default function RootLayout({
       className={`${poppins.variable} ${montserrat.variable} ${yellowtail.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-brand-navy">
-        {children}
+        <FirebaseProvider>
+          <FirebaseAnalytics />
+          {children}
+        </FirebaseProvider>
       </body>
     </html>
   );

@@ -1,0 +1,12 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Temporary open access until 2026-06-24 — replace with stricter rules before expiry.
+    // Allows landing-page form (create) and dashboard (read) without Auth.
+    match /{document=**} {
+      allow read, write: if request.time < timestamp.date(2026, 6, 24);
+    }
+  }
+}
