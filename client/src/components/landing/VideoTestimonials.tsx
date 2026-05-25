@@ -52,7 +52,7 @@ export function VideoTestimonials() {
                     controls
                     playsInline
                     preload="metadata"
-                    className="aspect-[5/4] min-h-[14rem] w-full object-cover sm:min-h-[15rem] md:min-h-[17rem]"
+                    className="aspect-[4/5] min-h-[18rem] w-full object-cover sm:min-h-[20rem] md:min-h-[24rem] lg:min-h-[26rem]"
                   >
                     <source
                       src={encodeURI(`/testimonial/${v.file}`)}
