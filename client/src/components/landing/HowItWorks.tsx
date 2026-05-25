@@ -1,10 +1,12 @@
+import type { ReactNode } from "react";
+
+const MIST = "#F3EADA";
 const ORANGE = "#E25827";
 const DARK = "#372C21";
-const MIST = "#F3EADA";
 
 function IconResearch() {
   return (
-    <svg viewBox="0 0 64 64" className="h-11 w-11 md:h-12 md:w-12" aria-hidden>
+    <svg viewBox="0 0 64 64" className="h-8 w-8" aria-hidden>
       <circle cx="32" cy="32" r="28" fill={MIST} stroke={DARK} strokeWidth="1.5" />
       <rect x="16" y="36" width="32" height="14" rx="1" fill="#fff" stroke={DARK} strokeWidth="1.2" />
       <path d="M20 40 H44 M20 44 H36" stroke={DARK} strokeWidth="1" opacity="0.5" />
@@ -16,7 +18,7 @@ function IconResearch() {
 
 function IconMaterials() {
   return (
-    <svg viewBox="0 0 64 64" className="h-11 w-11 md:h-12 md:w-12" aria-hidden>
+    <svg viewBox="0 0 64 64" className="h-8 w-8" aria-hidden>
       <circle cx="32" cy="32" r="28" fill={MIST} stroke={DARK} strokeWidth="1.5" />
       <rect x="14" y="22" width="36" height="8" rx="1" fill={ORANGE} opacity="0.9" />
       <rect x="18" y="32" width="28" height="8" rx="1" fill="#c2481c" />
@@ -27,7 +29,7 @@ function IconMaterials() {
 
 function IconFabrication() {
   return (
-    <svg viewBox="0 0 64 64" className="h-11 w-11 md:h-12 md:w-12" aria-hidden>
+    <svg viewBox="0 0 64 64" className="h-8 w-8" aria-hidden>
       <circle cx="32" cy="32" r="28" fill={MIST} stroke={DARK} strokeWidth="1.5" />
       <circle cx="32" cy="32" r="10" fill="none" stroke={ORANGE} strokeWidth="2.5" />
       <circle cx="32" cy="32" r="4" fill={ORANGE} />
@@ -39,7 +41,7 @@ function IconFabrication() {
 
 function IconAssembly() {
   return (
-    <svg viewBox="0 0 64 64" className="h-11 w-11 md:h-12 md:w-12" aria-hidden>
+    <svg viewBox="0 0 64 64" className="h-8 w-8" aria-hidden>
       <circle cx="32" cy="32" r="28" fill={MIST} stroke={DARK} strokeWidth="1.5" />
       <rect x="12" y="28" width="22" height="12" fill="#fff" stroke={DARK} strokeWidth="1.3" rx="1" />
       <path
@@ -56,129 +58,51 @@ function IconAssembly() {
   );
 }
 
-const steps = [
-  {
-    n: "01",
-    title: "Research and design",
-    body: "The first step involves thorough research and design, where the space's dimensions and user needs are analyzed. This ensures the modular furniture fits perfectly in both style and function.",
-    icon: <IconResearch />,
-  },
-  {
-    n: "02",
-    title: "Material selection",
-    body: "Once the design is finalized, the next step is selecting materials, hardware, finishes, and colors that align with the style, durability, and desired look of the furniture.",
-    icon: <IconMaterials />,
-  },
-  {
-    n: "03",
-    title: "Fabrication",
-    body: "Materials are then cut, shaped, and prepared using precision tools like CNC routers, panel saws, edge banding machines, and presses. Each component is crafted to meet the exact design specifications.",
-    icon: <IconFabrication />,
-  },
-  {
-    n: "04",
-    title: "Assembly and installation",
-    body: "In the final step, the modular pieces are assembled and installed on-site. The components are fitted together seamlessly, with attention to both functionality and the final appearance.",
-    icon: <IconAssembly />,
-  },
-] as const;
+const steps: { title: string; icon: ReactNode }[] = [
+  { title: "Research and design", icon: <IconResearch /> },
+  { title: "Material selection", icon: <IconMaterials /> },
+  { title: "Fabrication", icon: <IconFabrication /> },
+  { title: "Assembly and installation", icon: <IconAssembly /> },
+];
 
 export function HowItWorks() {
   return (
     <section id="process" className="bg-white">
       <div className="container-px mx-auto max-w-7xl py-10 md:py-16">
-        <h2 className="text-center font-display text-2xl font-bold text-brand-navy md:text-3xl">
+        <h2 className="font-display text-2xl font-bold text-brand-navy md:text-3xl">
           Our process
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-brand-navy/70 md:text-base">
-          From blueprint to installation — a system-driven approach at every
-          stage.
-        </p>
 
-        {/* Mobile: vertical spine + dashed segments between steps */}
-        <div className="relative mt-10 lg:hidden">
-          <span
-            aria-hidden
-            className="absolute left-[26px] top-6 bottom-6 w-0 border-l-2 border-dashed border-brand-coral/40"
-          />
-          <ol className="relative flex flex-col gap-0">
-            {steps.map((s, i) => (
-              <li
-                key={s.n}
-                className="relative flex gap-4 pb-8 pl-0 last:pb-0"
-              >
-                <div className="relative z-10 flex shrink-0 flex-col items-center">
-                  <span className="flex h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-brand-coral/35 bg-white shadow-sm ring-4 ring-white">
-                    {s.icon}
-                  </span>
-                  {i < steps.length - 1 ? (
-                    <span
-                      aria-hidden
-                      className="mt-2 text-xs font-bold text-brand-coral/80"
-                    >
-                      ↓
-                    </span>
-                  ) : null}
-                </div>
-                <div className="min-w-0 flex-1 rounded-xl border border-brand-border/80 bg-brand-mist/40 px-4 py-4 shadow-sm">
-                  <span className="text-xs font-bold text-brand-coral">
-                    {s.n}
-                  </span>
-                  <h3 className="mt-0.5 text-base font-bold leading-tight text-brand-navy">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-brand-navy/80">
-                    {s.body}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        {/* Desktop: one connected strip with dividers + arrows */}
-        <ol className="relative mt-10 hidden rounded-2xl border border-brand-border bg-gradient-to-br from-white via-brand-mist/30 to-brand-mist/50 shadow-card lg:flex lg:flex-row lg:divide-x lg:divide-dashed lg:divide-brand-coral/35">
-          {steps.map((s, i) => (
+        <ol className="mt-8 max-w-xl md:mt-10">
+          {steps.map((step, index) => (
             <li
-              key={s.n}
-              className="group relative flex flex-1 flex-col p-6 xl:p-7"
+              key={step.title}
+              className="flex items-start gap-5 md:gap-6"
             >
-              {i < steps.length - 1 ? (
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -right-3 top-[4.25rem] z-20 hidden h-9 w-9 items-center justify-center rounded-full border border-brand-coral/30 bg-white text-sm font-bold text-brand-coral shadow-md lg:flex"
-                >
-                  →
+              <div className="flex w-12 shrink-0 flex-col items-center md:w-14">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-border bg-white shadow-sm ring-2 ring-brand-mist md:h-14 md:w-14">
+                  {step.icon}
                 </span>
-              ) : null}
-              <div className="flex items-start gap-3">
-                <span className="shrink-0 rounded-full border border-brand-coral/25 bg-white p-1.5 shadow-sm ring-2 ring-brand-mist">
-                  {s.icon}
-                </span>
-                <div className="min-w-0">
-                  <span className="text-xs font-bold text-brand-coral">
-                    {s.n}
+                {index < steps.length - 1 ? (
+                  <span
+                    aria-hidden
+                    className="my-1 flex flex-col items-center justify-center gap-1 py-0.5"
+                  >
+                    {Array.from({ length: 2 }).map((_, dash) => (
+                      <span
+                        key={dash}
+                        className="block h-1.5 w-px rounded-full bg-brand-navy/30 md:h-2"
+                      />
+                    ))}
                   </span>
-                  <h3 className="text-base font-bold leading-snug text-brand-navy xl:text-lg">
-                    {s.title}
-                  </h3>
-                </div>
+                ) : null}
               </div>
-              <p className="mt-4 text-xs leading-relaxed text-brand-navy/80 xl:text-sm">
-                {s.body}
+              <p className="pt-2.5 text-base font-medium text-brand-navy md:pt-3 md:text-lg">
+                {step.title}
               </p>
             </li>
           ))}
         </ol>
-
-        <div className="mt-10 flex justify-center">
-          <a
-            href="#quote"
-            className="inline-flex items-center justify-center rounded-full bg-brand-coral px-6 py-3 text-xs font-semibold uppercase tracking-wide text-white shadow-pop transition hover:bg-brand-coral-600 md:text-sm"
-          >
-            Book free consultation
-          </a>
-        </div>
       </div>
     </section>
   );

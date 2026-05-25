@@ -3,12 +3,11 @@ import { Hero } from "@/components/landing/Hero";
 import {
   PremiumProducts,
   OfferingsSection,
-  WhyShambhala,
   FiveReasons,
-  MentorsSection,
   // BlogsSection,
 } from "@/components/landing/MarketingSections";
 import { Partners } from "@/components/landing/Partners";
+import { Stats } from "@/components/landing/Stats";
 import { VideoTestimonials } from "@/components/landing/VideoTestimonials";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { ConnectCTA } from "@/components/landing/ConnectCTA";
@@ -21,11 +20,10 @@ export default function Home() {
       <main id="top" className="flex-1 scroll-mt-0">
         <Hero />
         <PremiumProducts />
+        <Stats />
         <VideoTestimonials />
         <OfferingsSection />
-        <WhyShambhala />
         <FiveReasons />
-        <MentorsSection />
         <Partners />
         <HowItWorks />
         {/* <BlogsSection /> */}

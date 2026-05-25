@@ -6,6 +6,46 @@ export const siteImages = {
   grid3: "/image%20copy%203.png",
 } as const;
 
+/** Premium products gallery — add entries when new photos are in /public */
+export const productGallery = [
+  { src: siteImages.grid1, alt: "Shambhala modular kitchen interior" },
+  { src: siteImages.grid2, alt: "Modular kitchen island and backsplash" },
+  { src: siteImages.grid3, alt: "Modular kitchen with ambient lighting" },
+  { src: siteImages.hero, alt: "Premium modular kitchen finish" },
+  { src: siteImages.grid2, alt: "Kitchen cabinetry detail" },
+  { src: siteImages.grid3, alt: "Wardrobe and storage detail" },
+] as const;
+
+export const offerings = [
+  {
+    title: "Modular Kitchen",
+    tag: "₹4 lakhs onwards",
+    image: siteImages.grid1,
+  },
+  {
+    title: "Modular Wardrobe",
+    tag: "From ₹1 Lakh",
+    image: siteImages.grid3,
+  },
+  {
+    title: "Modular Bed",
+    tag: "From ₹50,000",
+    image: siteImages.hero,
+  },
+  {
+    title: "Modular Storage Units",
+    tag: "Custom pricing",
+    image: siteImages.grid2,
+  },
+] as const;
+
+export const siteStats = [
+  { value: "300+", label: "kitchens delivered" },
+  { value: "400+", label: "wardrobes delivered" },
+  { value: "500+", label: "modular pieces" },
+  { value: "4.6+", label: "customer satisfaction" },
+] as const;
+
 export const siteContact = {
   email: "mail@shambhalahome.com",
   phoneDisplay: "+91 84461 08304",

@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Development: allow API server (Firebase web SDK) read/write.
+    // Tighten before production — prefer Firebase Admin SDK + locked rules.
+    match /callback_requests/{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

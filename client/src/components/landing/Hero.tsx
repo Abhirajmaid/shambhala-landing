@@ -2,52 +2,30 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ClientOnly } from "@/components/ClientOnly";
+import { submitLead } from "@/lib/api";
 import {
   requirementOptions,
   siteContact,
   siteImages,
 } from "@/content/shambhala-site";
 
-function QuoteFormSkeleton() {
-  const fieldClass =
-    "w-full rounded-md border border-brand-border bg-white px-3 py-2.5 text-sm";
-
-  return (
-    <motionless-form className="mt-4 space-y-3" aria-hidden>
-      <motionless-label className="block">
-        <div className={`${fieldClass} h-[42px]`} />
-      </motionless-label>
-      <motionless-label className="flex items-stretch overflow-hidden rounded-md border border-brand-border">
-        <span className="flex items-center gap-1 border-r border-brand-border bg-white px-2.5 text-sm">
-          <span
-            className="inline-block h-3.5 w-5 overflow-hidden rounded-[2px]"
-            style={{
-              background:
-                "linear-gradient(to bottom,#FF9933 33%,#FFFFFF 33%,#FFFFFF 66%,#138808 66%)",
-            }}
-          />
-          <span className="text-brand-navy/70">+91</span>
-        </span>
-        <motionless-div className="h-[42px] flex-1 bg-white" />
-      </motionless-label>
-      <motionless-label className="block">
-        <motionless-div className={`${fieldClass} h-[42px]`} />
-      </motionless-label>
-      <motionless-label className="flex items-center gap-2">
-        <motionless-div className="h-4 w-4 rounded border border-brand-border bg-white" />
-        <motionless-span className="text-xs text-brand-navy/80 md:text-sm">
-          Send me updates on WhatsApp
-        </motionless-span>
-      </motionless-label>
-      <motionless-div className="mt-1 h-[42px] w-full rounded-full bg-brand-coral/90" />
-    </motionless-form>
-  );
-}
+type StepOne = {
+  name: string;
+  phone: string;
+  city: string;
+};
 
 export function Hero() {
   const [step, setStep] = useState<1 | 2>(1);
   const [agree, setAgree] = useState(true);
+  const [stepOne, setStepOne] = useState<StepOne>({
+    name: "",
+    phone: "",
+    city: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <section
@@ -105,11 +83,26 @@ export function Hero() {
                   : "Share your email and what you’re looking for."}
               </p>
 
-              {step === 1 ? (
+              {submitted ? (
+                <div className="mt-6 rounded-xl bg-brand-mist px-4 py-6 text-center">
+                  <p className="font-semibold text-brand-navy">Thank you!</p>
+                  <p className="mt-1 text-sm text-brand-navy/70">
+                    We&apos;ve received your request and will call you back
+                    shortly.
+                  </p>
+                </div>
+              ) : step === 1 ? (
                 <form
                   className="mt-4 space-y-3"
                   onSubmit={(e) => {
                     e.preventDefault();
+                    const fd = new FormData(e.currentTarget);
+                    setStepOne({
+                      name: String(fd.get("name") ?? "").trim(),
+                      phone: String(fd.get("phone") ?? "").trim(),
+                      city: String(fd.get("city") ?? "").trim(),
+                    });
+                    setSubmitError("");
                     setStep(2);
                   }}
                 >
@@ -119,6 +112,7 @@ export function Hero() {
                       required
                       type="text"
                       name="name"
+                      defaultValue={stepOne.name}
                       placeholder="Full name*"
                       className="w-full rounded-md border border-brand-border bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-brand-navy/50 focus:border-brand-coral"
                     />
@@ -140,6 +134,7 @@ export function Hero() {
                       required
                       type="tel"
                       name="phone"
+                      defaultValue={stepOne.phone}
                       placeholder="Phone*"
                       className="flex-1 bg-white px-3 py-2.5 text-sm outline-none placeholder:text-brand-navy/50"
                     />
@@ -151,6 +146,7 @@ export function Hero() {
                       required
                       type="text"
                       name="city"
+                      defaultValue={stepOne.city}
                       placeholder="City*"
                       className="w-full rounded-md border border-brand-border bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-brand-navy/50 focus:border-brand-coral"
                     />
@@ -188,8 +184,33 @@ export function Hero() {
               ) : (
                 <form
                   className="mt-4 space-y-3"
-                  onSubmit={(e) => {
+                  onSubmit={async (e) => {
                     e.preventDefault();
+                    setSubmitting(true);
+                    setSubmitError("");
+                    const fd = new FormData(e.currentTarget);
+                    try {
+                      await submitLead({
+                        name: stepOne.name,
+                        phone: stepOne.phone,
+                        city: stepOne.city,
+                        whatsappUpdates: agree,
+                        email: String(fd.get("email") ?? "").trim(),
+                        interest: String(fd.get("interest") ?? "").trim(),
+                        notes: String(fd.get("notes") ?? "").trim(),
+                      });
+                      setSubmitting(false);
+                      setSubmitted(true);
+                      return;
+                    } catch (err) {
+                      setSubmitError(
+                        err instanceof Error
+                          ? err.message
+                          : "Something went wrong. Please try again.",
+                      );
+                    } finally {
+                      setSubmitting(false);
+                    }
                   }}
                 >
                   <label className="block">
@@ -234,19 +255,27 @@ export function Hero() {
                     />
                   </label>
 
+                  {submitError ? (
+                    <p className="rounded-md bg-red-50 px-3 py-2 text-xs text-red-700">
+                      {submitError}
+                    </p>
+                  ) : null}
+
                   <div className="flex gap-2">
                     <button
                       type="button"
                       onClick={() => setStep(1)}
-                      className="w-1/3 rounded-full border border-brand-border py-2.5 text-sm font-semibold text-brand-navy transition hover:bg-brand-mist"
+                      disabled={submitting}
+                      className="w-1/3 rounded-full border border-brand-border py-2.5 text-sm font-semibold text-brand-navy transition hover:bg-brand-mist disabled:opacity-60"
                     >
                       Back
                     </button>
                     <button
                       type="submit"
-                      className="w-2/3 rounded-full bg-brand-coral py-2.5 text-sm font-semibold uppercase tracking-wide text-white shadow-pop transition hover:bg-brand-coral-600"
+                      disabled={submitting}
+                      className="w-2/3 rounded-full bg-brand-coral py-2.5 text-sm font-semibold uppercase tracking-wide text-white shadow-pop transition hover:bg-brand-coral-600 disabled:opacity-60"
                     >
-                      Submit
+                      {submitting ? "Submitting…" : "Submit"}
                     </button>
                   </div>
                 </form>

@@ -27,37 +27,9 @@ export function Footer() {
           </a>
         </div>
 
-        <nav
-          aria-label="Footer"
-          className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-brand-cream/80 md:gap-x-5 md:text-sm"
-        >
-          {footerNav.map((item, i) => (
-            <span key={item.href} className="inline-flex items-center gap-x-3 md:gap-x-5">
-              {i > 0 ? (
-                <span className="text-white/25" aria-hidden>
-                  |
-                </span>
-              ) : null}
-              <Link href={item.href} className="hover:text-white hover:underline">
-                {item.label}
-              </Link>
-            </span>
-          ))}
-        </nav>
-
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-brand-cream/85 md:text-sm">
-          {socialLinks.map((s) => (
-            <a
-              key={s.href}
-              href={s.href}
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-brand-orange hover:underline"
-            >
-              {s.label}
-            </a>
-          ))}
-        </div>
+          
+        
+        
 
         <p className="mx-auto mt-8 max-w-4xl text-center text-xs leading-relaxed text-brand-cream/65 md:text-sm">
           Interior designers &amp; full-home interiors in Pune · Bangalore ·

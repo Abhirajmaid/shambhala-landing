@@ -18,32 +18,16 @@ export function VideoTestimonials() {
   return (
     <section id="testimonials" className="bg-white">
       <div className="container-px mx-auto max-w-7xl py-10 md:py-16">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
-          <div className="max-w-2xl text-center lg:text-left">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-coral md:text-xs">
-              Testimonials
-            </p>
-            <h2 className="mt-2 font-display text-2xl font-bold leading-tight text-brand-navy md:text-4xl">
-              Customer first, always!
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-brand-navy/75 md:text-base">
-              Our unwavering focus on customers has been the driving force
-              behind building Shambhala.{" "}
-              <span className="mt-2 block text-brand-navy/70">
-                Hear from our clients — swipe to explore, or use the arrows on
-                larger screens.
-              </span>
-            </p>
-          </div>
-          <a
-            href="#quote"
-            className="inline-flex shrink-0 items-center justify-center self-center rounded-full bg-brand-coral px-5 py-2.5 text-[10px] font-semibold uppercase tracking-wide text-white shadow-pop transition hover:bg-brand-coral-600 lg:self-end md:px-6 md:text-xs"
-          >
-            Get quote
-          </a>
+        <div className="max-w-2xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-coral md:text-xs">
+            Testimonials
+          </p>
+          <h2 className="mt-2 font-display text-2xl font-bold leading-tight text-brand-navy md:text-4xl">
+            Customer first, always!
+          </h2>
         </div>
 
-        <div className="relative mt-8 md:mt-10">
+        <div className="relative mt-6 md:mt-8">
           <button
             type="button"
             aria-label="Previous videos"
@@ -68,7 +52,7 @@ export function VideoTestimonials() {
                     controls
                     playsInline
                     preload="metadata"
-                    className="aspect-video w-full object-cover"
+                    className="aspect-[5/4] min-h-[14rem] w-full object-cover sm:min-h-[15rem] md:min-h-[17rem]"
                   >
                     <source
                       src={encodeURI(`/testimonial/${v.file}`)}
