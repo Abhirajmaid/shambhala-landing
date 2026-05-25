@@ -1,20 +1,35 @@
 import "dotenv/config";
 
+function env(name: string): string {
+  const value = process.env[name]?.trim();
+  if (!value) {
+    throw new Error(
+      `Missing environment variable: ${name}. Copy server/.env.example to server/.env and fill in values.`,
+    );
+  }
+  return value;
+}
+
+function envOptional(name: string, fallback: string): string {
+  return process.env[name]?.trim() || fallback;
+}
+
+const measurementId = envOptional("FIREBASE_MEASUREMENT_ID", "");
+
 export const firebaseConfig = {
-  apiKey: "AIzaSyAnUu4tQxX4l2RFjK_dQRmiMPyd2RL28H0",
-  authDomain: "shambhala-59523.firebaseapp.com",
-  projectId: "shambhala-59523",
-  storageBucket: "shambhala-59523.firebasestorage.app",
-  messagingSenderId: "96534527860",
-  appId: "1:96534527860:web:024b3319e09fb3b2eff621",
-  measurementId: "G-9SV4KJGRD8",
+  apiKey: env("FIREBASE_API_KEY"),
+  authDomain: env("FIREBASE_AUTH_DOMAIN"),
+  projectId: env("FIREBASE_PROJECT_ID"),
+  storageBucket: env("FIREBASE_STORAGE_BUCKET"),
+  messagingSenderId: env("FIREBASE_MESSAGING_SENDER_ID"),
+  appId: env("FIREBASE_APP_ID"),
+  ...(measurementId ? { measurementId } : {}),
 };
 
-export const port = Number(process.env.PORT) || 4000;
-export const clientOrigin = process.env.CLIENT_ORIGIN || "http://localhost:3000";
-export const adminEmail = process.env.ADMIN_EMAIL || "admin@shambhalahome.com";
-export const adminPassword = process.env.ADMIN_PASSWORD || "Shambhala@2026";
-export const adminSessionToken =
-  process.env.ADMIN_SESSION_TOKEN || "shambhala-dashboard-token";
+export const port = Number(envOptional("PORT", "4000"));
+export const clientOrigin = envOptional("CLIENT_ORIGIN", "http://localhost:3000");
+export const adminEmail = env("ADMIN_EMAIL");
+export const adminPassword = env("ADMIN_PASSWORD");
+export const adminSessionToken = env("ADMIN_SESSION_TOKEN");
 
 export const leadsCollection = "callback_requests";

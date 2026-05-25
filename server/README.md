@@ -8,7 +8,10 @@ Express server that saves landing-page callback requests to **Firestore** and se
 cd server
 npm install
 cp .env.example .env
+# Edit .env with your Firebase values from the console (do not commit .env)
 ```
+
+**Security:** If credentials were ever pushed to GitHub, rotate the Firebase API key in [Google Cloud Console](https://console.cloud.google.com/apis/credentials) and update `server/.env`.
 
 ### Firestore
 
