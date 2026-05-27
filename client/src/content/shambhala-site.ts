@@ -4,6 +4,10 @@ export const siteImages = {
   grid1: "/image%20copy.png",
   grid2: "/image%20copy%202.png",
   grid3: "/image%20copy%203.png",
+  kitchen: "/kitchen.jpeg",
+  wardrobe: "/war.jpg",
+  bed: "/bed.jpeg",
+  storage: "/store%20unit.png",
 } as const;
 
 /** Premium products gallery — add entries when new photos are in /public */
@@ -20,26 +24,22 @@ export const offerings = [
   {
     title: "Modular Kitchen",
     tag: "₹4 lakhs onwards",
-    image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=80",
+    image: siteImages.kitchen,
   },
   {
     title: "Modular Wardrobe",
     tag: "From ₹1 Lakh",
-    image:
-      "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=900&q=80",
+    image: siteImages.wardrobe,
   },
   {
     title: "Modular Bed",
     tag: "From ₹50,000",
-    image:
-      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80",
+    image: siteImages.bed,
   },
   {
     title: "Modular Storage Units",
     tag: "Custom pricing",
-    image:
-      "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=900&q=80",
+    image: siteImages.storage,
   },
 ] as const;
 
