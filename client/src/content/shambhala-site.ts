@@ -5,9 +5,8 @@ export const siteImages = {
   grid2: "/image%20copy%202.png",
   grid3: "/image%20copy%203.png",
   kitchen: "/kitchen.jpeg",
-  wardrobe: "/war.jpg",
+  wardrobe: "/store%20unit.png",
   bed: "/bed.jpeg",
-  storage: "/store%20unit.png",
 } as const;
 
 /** Premium products gallery — add entries when new photos are in /public */
@@ -35,11 +34,6 @@ export const offerings = [
     title: "Modular Bed",
     tag: "From ₹50,000",
     image: siteImages.bed,
-  },
-  {
-    title: "Modular Storage Units",
-    tag: "Custom pricing",
-    image: siteImages.storage,
   },
 ] as const;
 
