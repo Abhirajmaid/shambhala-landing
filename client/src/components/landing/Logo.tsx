@@ -5,14 +5,14 @@ export function Logo({ className = "" }: { className?: string }) {
     <a
       href="#top"
       aria-label="Shambhala — back to top"
-      className={`inline-flex shrink-0 items-center overflow-visible ${className}`}
+      className={`inline-flex shrink-0 items-center ${className}`}
     >
       <Image
-        src="/Shambhala-Logo-2024.png"
+        src="/logoo.png"
         alt="Shambhala — Modular Kitchen, Wardrobe & Furniture"
-        width={560}
-        height={158}
-        className="h-10 w-auto origin-left scale-[1.85] sm:scale-[2] md:h-11 md:scale-[2.15]"
+        width={480}
+        height={120}
+        className="h-10 w-auto sm:h-11 md:h-13"
         priority
       />
     </a>

@@ -20,22 +20,26 @@ export const offerings = [
   {
     title: "Modular Kitchen",
     tag: "₹4 lakhs onwards",
-    image: siteImages.grid1,
+    image:
+      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=80",
   },
   {
     title: "Modular Wardrobe",
     tag: "From ₹1 Lakh",
-    image: siteImages.grid3,
+    image:
+      "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=900&q=80",
   },
   {
     title: "Modular Bed",
     tag: "From ₹50,000",
-    image: siteImages.hero,
+    image:
+      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80",
   },
   {
     title: "Modular Storage Units",
     tag: "Custom pricing",
-    image: siteImages.grid2,
+    image:
+      "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=900&q=80",
   },
 ] as const;
 

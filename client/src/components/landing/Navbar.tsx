@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 export function Navbar() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-brand-border bg-white/95 backdrop-blur">
-      <div className="container-px mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 md:h-16">
+      <div className="container-px mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 md:h-[4.5rem]">
         <Logo />
         <a
           href={`tel:${siteContact.phoneTel}`}
